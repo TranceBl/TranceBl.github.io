@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 随心笔记</title>
+  <title>微信红包发送关键代码 | 随心笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="随心笔记">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="微信红包发送主要涉及服务号获取用户openid、发送红包请求两块内容，本文展示这两部分的关键代码。 获取用户openid1、服务号设置内容链接​    笔者维护的服务号使用自定义菜单跳转网页的方式，网页链接格式按照微信公众号开发文档中归档的格式即可，如果只需要获得openid的则按照snsapi_base的格式即可。">
+<meta name="keywords" content="微信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信红包发送关键代码">
+<meta property="og:url" content="http://yoursite.com/2019/09/21/微信红包发送关键代码/index.html">
 <meta property="og:site_name" content="随心笔记">
+<meta property="og:description" content="微信红包发送主要涉及服务号获取用户openid、发送红包请求两块内容，本文展示这两部分的关键代码。 获取用户openid1、服务号设置内容链接​    笔者维护的服务号使用自定义菜单跳转网页的方式，网页链接格式按照微信公众号开发文档中归档的格式即可，如果只需要获得openid的则按照snsapi_base的格式即可。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/wxRedPack/redpack2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/wxRedPack/redpack3.jpg">
+<meta property="og:updated_time" content="2019-09-21T09:30:13.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随心笔记">
+<meta name="twitter:title" content="微信红包发送关键代码">
+<meta name="twitter:description" content="微信红包发送主要涉及服务号获取用户openid、发送红包请求两块内容，本文展示这两部分的关键代码。 获取用户openid1、服务号设置内容链接​    笔者维护的服务号使用自定义菜单跳转网页的方式，网页链接格式按照微信公众号开发文档中归档的格式即可，如果只需要获得openid的则按照snsapi_base的格式即可。">
+<meta name="twitter:image" content="http://yoursite.com/images/wxRedPack/redpack2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="随心笔记" type="application/atom+xml">
   
@@ -148,36 +156,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-微信红包发送关键代码" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      微信红包发送关键代码
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/21/微信红包发送关键代码/" class="archive-article-date">
+
+        
+        <a href="/2019/09/21/微信红包发送关键代码/" class="archive-article-date">
   	<time datetime="2019-09-21T09:30:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/21/微信红包发送关键代码/">微信红包发送关键代码</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>微信红包发送主要涉及服务号获取用户openid、发送红包请求两块内容，本文展示这两部分的关键代码。</p>
+<h1 id="获取用户openid"><a href="#获取用户openid" class="headerlink" title="获取用户openid"></a>获取用户openid</h1><h2 id="1、服务号设置内容链接"><a href="#1、服务号设置内容链接" class="headerlink" title="1、服务号设置内容链接"></a>1、服务号设置内容链接</h2><p>​    笔者维护的服务号使用自定义菜单跳转网页的方式，网页链接格式按照<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html" target="_blank" rel="noopener">微信公众号开发文档</a>中归档的格式即可，如果只需要获得openid的则按照snsapi_base的格式即可。</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="2、获取网页授权access-token与openid"><a href="#2、获取网页授权access-token与openid" class="headerlink" title="2、获取网页授权access_token与openid"></a>2、获取网页授权access_token与openid</h2><p>获取网页授权access_token部分代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 拼接请求地址</span></span><br><span class="line">String url = <span class="string">"https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&amp;secret=SECRET&amp;code=CODE&amp;grant_type=authorization_code"</span>;</span><br><span class="line">url = url.replace(<span class="string">"APPID"</span>, appId);</span><br><span class="line">url = url.replace(<span class="string">"SECRET"</span>, appSecret);</span><br><span class="line">url = url.replace(<span class="string">"CODE"</span>, code);</span><br><span class="line"></span><br><span class="line">Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line">ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"><span class="comment">// 获取网页授权凭证</span></span><br><span class="line">String result = <span class="keyword">new</span> WxUtil().getSendResult(url);<span class="comment">//该方法发送get请求</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  result = <span class="keyword">new</span> String(result.getBytes(<span class="string">"GBK"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">  e1.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"result="</span> + result);</span><br></pre></td></tr></table></figure>
+
+<p>​    正常获取的json数据格式如下，其中openid 便是用户在这个服务号下的唯一编号，之后便可以与数据库中的用户进行绑定：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"access_token"</span>:<span class="string">"ACCESS_TOKEN"</span>,</span><br><span class="line">  <span class="attr">"expires_in"</span>:<span class="number">7200</span>,</span><br><span class="line">  <span class="attr">"refresh_token"</span>:<span class="string">"REFRESH_TOKEN"</span>,</span><br><span class="line">  <span class="attr">"openid"</span>:<span class="string">"OPENID"</span>,</span><br><span class="line">  <span class="attr">"scope"</span>:<span class="string">"SCOPE"</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="发送红包"><a href="#发送红包" class="headerlink" title="发送红包"></a>发送红包</h1><h2 id="1、获得签名"><a href="#1、获得签名" class="headerlink" title="1、获得签名"></a>1、获得签名</h2><p>​    发送红包请求中需要包含签名，具体生成方法请参考<a href="https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=4_3" target="_blank" rel="noopener">微信商户签名生成方法文档</a>。这个步骤很容易出现错误，比如数值为空的参数也参与了签名算法、key值为空等情况，可参考<a href="https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=20_1" target="_blank" rel="noopener">签名校验工具</a>进行验证。以下为笔者生成签名的部分代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//String param = "act_name=ACT_NAME&amp;client_ip=CLIENT_IP&amp;mch_billno=MCH_BILLNO&amp;mch_id=MCH_ID&amp;nonce_str=NONCE_STR&amp;re_openid=RE_OPENID&amp;remark=REMARK&amp;scene_id=SCENE_ID&amp;send_name=SEND_NAME&amp;total_amount=TOTAL_AMOUNT&amp;total_num=TOTAL_NUM&amp;wishing=WISHING&amp;wxappid=WXAPPID&amp;key=KEY";</span></span><br><span class="line">    	</span><br><span class="line"><span class="comment">//不添加场景参数</span></span><br><span class="line">String param = <span class="string">"act_name=ACT_NAME&amp;client_ip=CLIENT_IP&amp;mch_billno=MCH_BILLNO&amp;mch_id=MCH_ID&amp;nonce_str=NONCE_STR&amp;re_openid=RE_OPENID&amp;remark=REMARK&amp;send_name=SEND_NAME&amp;total_amount=TOTAL_AMOUNT&amp;total_num=TOTAL_NUM&amp;wishing=WISHING&amp;wxappid=WXAPPID&amp;key=KEY"</span>;</span><br><span class="line"></span><br><span class="line">String act_name = str.get(map, <span class="string">"act_name"</span>);<span class="comment">//str为笔者系统里的一个工具类</span></span><br><span class="line">String client_ip = str.get(map, <span class="string">"client_ip"</span>);</span><br><span class="line">String mch_billno = str.get(map, <span class="string">"mch_billno"</span>);</span><br><span class="line">String mch_id = str.get(map, <span class="string">"mch_id"</span>);</span><br><span class="line">String nonce_str = str.get(map, <span class="string">"nonce_str"</span>);</span><br><span class="line">String re_openid = str.get(map, <span class="string">"re_openid"</span>);</span><br><span class="line">String remark = str.get(map, <span class="string">"remark"</span>);</span><br><span class="line">String scene_id = str.get(map, <span class="string">"scene_id"</span>);</span><br><span class="line">String send_name = str.get(map, <span class="string">"send_name"</span>);</span><br><span class="line">String sign = str.get(map, <span class="string">"sign"</span>);</span><br><span class="line">String total_amount = str.get(map, <span class="string">"total_amount"</span>);</span><br><span class="line">String total_num = str.get(map, <span class="string">"total_num"</span>);</span><br><span class="line">String wishing = str.get(map, <span class="string">"wishing"</span>);</span><br><span class="line">String wxappid = str.get(map, <span class="string">"wxappid"</span>);</span><br><span class="line"></span><br><span class="line">param = param.replace(<span class="string">"ACT_NAME"</span>, act_name)</span><br><span class="line">  .replace(<span class="string">"CLIENT_IP"</span>, client_ip)</span><br><span class="line">  .replace(<span class="string">"MCH_BILLNO"</span>, mch_billno)</span><br><span class="line">  .replace(<span class="string">"MCH_ID"</span>, mch_id)</span><br><span class="line">  .replace(<span class="string">"NONCE_STR"</span>, nonce_str)</span><br><span class="line">  .replace(<span class="string">"RE_OPENID"</span>, re_openid)</span><br><span class="line">  .replace(<span class="string">"REMARK"</span>, remark)</span><br><span class="line">  .replace(<span class="string">"SCENE_ID"</span>, scene_id)</span><br><span class="line">  .replace(<span class="string">"SEND_NAME"</span>, send_name)</span><br><span class="line">  .replace(<span class="string">"SIGN"</span>, sign)</span><br><span class="line">  .replace(<span class="string">"TOTAL_AMOUNT"</span>, total_amount)</span><br><span class="line">  .replace(<span class="string">"TOTAL_NUM"</span>, total_num)</span><br><span class="line">  .replace(<span class="string">"WISHING"</span>, wishing)</span><br><span class="line">  .replace(<span class="string">"WXAPPID"</span>, wxappid)</span><br><span class="line">  .replace(<span class="string">"KEY"</span>, key);</span><br><span class="line"><span class="comment">//System.out.println(param);</span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> MD5().MD5Encode(param).toUpperCase();</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、发送红包请求"><a href="#2、发送红包请求" class="headerlink" title="2、发送红包请求"></a>2、发送红包请求</h2><p>​    发送请求请按照<a href="https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=13_4&index=3" target="_blank" rel="noopener">微信红包发送文档</a>的规定进行发送，请求方式为post，必须得携带api证书进行发送，以下为部分发送代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sendRedPack</span><span class="params">(Map&lt;String, Object&gt; packInfo)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		String result = <span class="string">""</span>;</span><br><span class="line">		String url = <span class="string">"https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack"</span>;</span><br><span class="line">		String urlparams = sendRedPackParams();</span><br><span class="line">		</span><br><span class="line">		Set&lt;String&gt; set = packInfo.keySet(); <span class="comment">//取出所有的key值</span></span><br><span class="line">        <span class="keyword">for</span> (String key:set) &#123;</span><br><span class="line">        	String value = (String)packInfo.get(key);</span><br><span class="line">        	urlparams = urlparams.replace(key.toUpperCase(), value);</span><br><span class="line">        	<span class="comment">//log.debug("key="+key+" value="+value);</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        log.debug(<span class="string">"urlparams="</span> + urlparams);</span><br><span class="line">        </span><br><span class="line">		KeyStore keyStore = KeyStore.getInstance(<span class="string">"PKCS12"</span>);</span><br><span class="line">		FileInputStream instream = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"apiclient_cert.p12"</span>));</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			keyStore.load(instream, SzdjjhConst.getMch_id().toCharArray());</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			instream.close();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// Trust own CA and all self-signed certs</span></span><br><span class="line">		SSLContext sslcontext = SSLContexts.custom().loadKeyMaterial(keyStore, SzdjjhConst.getMch_id().toCharArray()).build();</span><br><span class="line">		<span class="comment">// Allow TLSv1 protocol only</span></span><br><span class="line">		SSLConnectionSocketFactory sslsf = <span class="keyword">new</span> SSLConnectionSocketFactory(sslcontext, <span class="keyword">new</span> String[] &#123; <span class="string">"TLSv1"</span> &#125;, <span class="keyword">null</span>,</span><br><span class="line">				SSLConnectionSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);</span><br><span class="line">		CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory(sslsf).build();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			HttpPost httpPost = <span class="keyword">new</span> HttpPost(url);</span><br><span class="line">			log.debug(<span class="string">"executing request"</span> + httpPost.getRequestLine());</span><br><span class="line">			<span class="comment">//中文不成功是因为没加编码</span></span><br><span class="line">			StringEntity myEntity = <span class="keyword">new</span> StringEntity(urlparams, <span class="string">"utf-8"</span>);</span><br><span class="line">			httpPost.setEntity(myEntity);</span><br><span class="line">			CloseableHttpResponse response = httpclient.execute(httpPost);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				HttpEntity entity1 = response.getEntity();</span><br><span class="line">				log.debug(<span class="string">"----------------------------------------"</span>);</span><br><span class="line">				log.debug(response.getStatusLine());</span><br><span class="line">				<span class="keyword">if</span> (entity1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">					log.debug(<span class="string">"Response content length: "</span> + entity1.getContentLength());</span><br><span class="line">					BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(entity1.getContent()));</span><br><span class="line">					String text;</span><br><span class="line">					<span class="keyword">while</span> ((text = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">						result += text;</span><br><span class="line">						<span class="comment">/*result += new String(text.getBytes("gbk"), "utf-8");</span></span><br><span class="line"><span class="comment">						log.debug(new String(text.getBytes("gbk"), "utf-8"));*/</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				EntityUtils.consume(entity1);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">				response.close();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			httpclient.close();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendRedPackParams</span><span class="params">()</span></span>&#123;</span><br><span class="line">  String xmlParams = <span class="string">" &lt;xml&gt;"</span> </span><br><span class="line">    + <span class="string">"&lt;sign&gt;SIGN&lt;/sign&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;mch_billno&gt;MCH_BILLNO&lt;/mch_billno&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;mch_id&gt;MCH_ID&lt;/mch_id&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;wxappid&gt;WXAPPID&lt;/wxappid&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;send_name&gt;SEND_NAME&lt;/send_name&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;re_openid&gt;RE_OPENID&lt;/re_openid&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;total_amount&gt;TOTAL_AMOUNT&lt;/total_amount&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;total_num&gt;TOTAL_NUM&lt;/total_num&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;wishing&gt;WISHING&lt;/wishing&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;client_ip&gt;CLIENT_IP&lt;/client_ip&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;act_name&gt;ACT_NAME&lt;/act_name&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;remark&gt;REMARK&lt;/remark&gt;"</span></span><br><span class="line">    <span class="comment">//+ "&lt;scene_id&gt;SCENE_ID&lt;/scene_id&gt;"</span></span><br><span class="line">    + <span class="string">"&lt;nonce_str&gt;NONCE_STR&lt;/nonce_str&gt;"</span> </span><br><span class="line">    + <span class="string">"&lt;/xml&gt;"</span>;</span><br><span class="line">  <span class="keyword">return</span> xmlParams;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>附上红包发送成功的示例：</p>
+<p><img src="/images/wxRedPack/redpack2.jpg" alt="红包"></p>
+<p><img src="/images/wxRedPack/redpack3.jpg" alt="红包"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wxlq.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,57 +240,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/21/微信红包发送关键代码/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/21/微信服务号红包/" class="archive-article-date">
-  	<time datetime="2019-09-21T07:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/21/微信服务号红包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信服务号发送红包条件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/21/微信服务号红包/">微信服务号发送红包条件</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -262,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
