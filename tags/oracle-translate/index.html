@@ -6,23 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>微信服务号发送红包条件 | 随心笔记</title>
+  <title>Tag: oracle,translate | 随心笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    笔者主要从事java web开发，客户偶尔会提出通过公众号发送红包的需求。由于接触的少踩了不少坑，以此文记录相关注意事项，确保以后再次遇到类似需求能开快速完成开发工作。 硬性要求服务器​    1.外网可以访问服务器的80端口，如果无法访问则可以使用端口转发的方式（笔者使用的是natapp绑定服务器80端口的方式）">
-<meta name="keywords" content="微信">
-<meta property="og:type" content="article">
-<meta property="og:title" content="微信服务号发送红包条件">
-<meta property="og:url" content="http://yoursite.com/2019/09/21/微信服务号红包/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="随心笔记">
+<meta property="og:url" content="http://yoursite.com/tags/oracle-translate/index.html">
 <meta property="og:site_name" content="随心笔记">
-<meta property="og:description" content="​    笔者主要从事java web开发，客户偶尔会提出通过公众号发送红包的需求。由于接触的少踩了不少坑，以此文记录相关注意事项，确保以后再次遇到类似需求能开快速完成开发工作。 硬性要求服务器​    1.外网可以访问服务器的80端口，如果无法访问则可以使用端口转发的方式（笔者使用的是natapp绑定服务器80端口的方式）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/wxRedPack/wxredpackopt1.jpg">
-<meta property="og:image" content="https://pay.weixin.qq.com/wiki/doc/api/img/chapter13_05.png">
-<meta property="og:updated_time" content="2019-09-21T09:28:18.567Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信服务号发送红包条件">
-<meta name="twitter:description" content="​    笔者主要从事java web开发，客户偶尔会提出通过公众号发送红包的需求。由于接触的少踩了不少坑，以此文记录相关注意事项，确保以后再次遇到类似需求能开快速完成开发工作。 硬性要求服务器​    1.外网可以访问服务器的80端口，如果无法访问则可以使用端口转发的方式（笔者使用的是natapp绑定服务器80端口的方式）">
-<meta name="twitter:image" content="http://yoursite.com/images/wxRedPack/wxredpackopt1.jpg">
+<meta name="twitter:title" content="随心笔记">
   
     <link rel="alternative" href="/atom.xml" title="随心笔记" type="application/atom+xml">
   
@@ -156,197 +148,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-微信服务号红包" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      微信服务号发送红包条件
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/22/oracle-translate/" class="archive-article-date">
+  	<time datetime="2019-09-22T07:34:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/22/oracle-translate/">oracle translate</a>
     </h1>
   
 
-        
-        <a href="/2019/09/21/微信服务号红包/" class="archive-article-date">
-  	<time datetime="2019-09-21T07:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    笔者主要从事java web开发，客户偶尔会提出通过公众号发送红包的需求。由于接触的少踩了不少坑，以此文记录相关注意事项，确保以后再次遇到类似需求能开快速完成开发工作。</p>
-<h1 id="硬性要求"><a href="#硬性要求" class="headerlink" title="硬性要求"></a>硬性要求</h1><h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p>​    1.外网可以访问服务器的80端口，如果无法访问则可以使用端口转发的方式（笔者使用的是natapp绑定服务器80端口的方式）</p>
-<a id="more"></a>
-
-<p>##公众号</p>
-<p>​    1.公众号必须为已认证的服务号</p>
-<p>​    2.开发 - 基本配置 下获得appid与appSecret，ip白名单内添加服务器的外网ip。</p>
-<p>​    3.设置 - 公众号设置 - 功能设置 设置安全域名。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果该步骤发现域名已全部被占用请及时反馈给客户，如果无法借用或替换域名则需要重新申请服务号，重新申请大约需要1-2天的时间。</span><br></pre></td></tr></table></figure>
-
-<p>​    4.开发 - 接口权限 - 网页服务 - 网页帐号 - 网页授权获取用户基本信息 处修改回调域名。</p>
-<p>​    5.公众号必须绑定商户号。</p>
-<h2 id="商户号"><a href="#商户号" class="headerlink" title="商户号"></a>商户号</h2><p>​    1.商户号必须满足可以<a href="https://kf.qq.com/faq/170905yMRfaq170905RruuMZ.html" target="_blank" rel="noopener">开通红包</a>功能的条件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">开通红包功能需要满足以下条件：</span><br><span class="line">- 入驻时间超过90天；</span><br><span class="line">- 截止今日回推30天连续不间断保持有交易；</span><br><span class="line">- 保持正常健康交易：</span><br><span class="line">  如果账号主体已满足该条件，使用该主体继续申请的账号自带开通红包的功能。</span><br><span class="line">  笔者开发时发现用户的商户号已绑定其他的公众号且有另外的第三方正在使用公众号发送红包，为了避免资金池的混乱以及减少审计工作的难度，用户便使用商户主体重新申请了微信商户。</span><br><span class="line">  新的微信商户自动满足以上条件。</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/wxRedPack/wxredpackopt1.jpg" alt="企业付款/现金红包开通条件"></p>
-<p>​    2.下载API证书。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户初次登录微信商户平台时页面自动提醒安装操作证书，按照提示操作操作证书和api证书，api证书只会安装一次。</span><br><span class="line">如果显示已安装无法下载则联系客户得到api证书。</span><br></pre></td></tr></table></figure>
-
-<p>​    3.金额足够。</p>
-<p>​    4.设置调用IP地址。</p>
-<p><img src="https://pay.weixin.qq.com/wiki/doc/api/img/chapter13_05.png" alt="红包参数设置"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wxlq.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle,translate</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/21/微信服务号红包/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/09/21/微信红包发送关键代码/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          微信红包发送关键代码
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -369,9 +224,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
