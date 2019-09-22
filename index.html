@@ -176,18 +176,9 @@
 <p>select translate(‘01234567891123’,’123’ ,’abcdefg’) from dual;  –1替换为a,2替换为b,3替换为c</p>
 <p>结果：0abc456789aabc。</p>
 <p>效果等同于select replace(replace(replace(‘01234567891123’, ‘1’, ‘a’), ‘2’, ‘b’), ‘3’, ‘c’) from dual;</p>
-<p>3.如果替换字符整个为空字符 ，则直接返回null</p>
-<p>select translate(‘1234567’,’123’ ,’’) from dual;</p>
-<p>结果：null;</p>
-<p>4.剔除特定字符，比如剔除数字保留汉字</p>
-<p>select translate(‘苏州市干将西路1390号4F’,’#0123456789’ ,’#’) from dual;</p>
-<p>结果：苏州市干将西路号F</p>
-<hr>
-<h1 id="判断是否为数字"><a href="#判断是否为数字" class="headerlink" title="判断是否为数字"></a>判断是否为数字</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">create or replace function fn_is_number(v_data varchar2) return varchar2 is</span><br><span class="line">  --判断字符串是否为数字</span><br><span class="line">  Result number;</span><br><span class="line">begin</span><br><span class="line">  begin</span><br><span class="line">    if instr(v_data, &apos; &apos;) &gt; 0 then</span><br><span class="line">      return 0;</span><br><span class="line">    end if;</span><br><span class="line">  </span><br><span class="line">    select case</span><br><span class="line">             when trim(translate(v_data, &apos;0123456789&apos;, &apos; &apos;)) is null then</span><br><span class="line">              1</span><br><span class="line">             else</span><br><span class="line">              0</span><br><span class="line">           end into Result</span><br><span class="line">      from dual;</span><br><span class="line">  exception</span><br><span class="line">    when others then</span><br><span class="line">       Result:=0;</span><br><span class="line">  end ;</span><br><span class="line">  return(Result);</span><br><span class="line">end fn_is_number;</span><br></pre></td></tr></table></figure>
-
-<p>示例：select fn_is_number(‘12345’), fn_is_number(‘ 12345 ‘) from dual;</p>
-<p>结果：1    0</p>
-
+        
+          <a class="article-more-a" href="/2019/09/22/oracle-translate/#more">more >></a>
+        
       
 
       
@@ -200,7 +191,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle,translate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
         		</li>
       		
 		</ul>
@@ -487,11 +478,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle,translate</a>
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
             
             <div class="clearfix"></div>
