@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: oracle | 随心笔记</title>
+  <title>oracle-bfilename | 随心笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="随心笔记">
-<meta property="og:url" content="http://yoursite.com/tags/oracle/index.html">
+  <meta name="description" content="bfilenamebfilename主要用来读写文件，语法格式为bfilename(&amp;#39;directory&amp;#39;, &amp;#39;filename&amp;#39;) 1、将文件写入数据库首先在数据库服务器中新建文件夹C:\oracle_file，然后在文件夹中新建文件test.txt。">
+<meta name="keywords" content="oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle-bfilename">
+<meta property="og:url" content="http://yoursite.com/2019/09/26/oracle-bfilename/index.html">
 <meta property="og:site_name" content="随心笔记">
+<meta property="og:description" content="bfilenamebfilename主要用来读写文件，语法格式为bfilename(&amp;#39;directory&amp;#39;, &amp;#39;filename&amp;#39;) 1、将文件写入数据库首先在数据库服务器中新建文件夹C:\oracle_file，然后在文件夹中新建文件test.txt。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/oracle-bfilename/bfilename01.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle-bfilename/bfilename02.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle-bfilename/bfilename03.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle-bfilename/bfilename04.png">
+<meta property="og:updated_time" content="2019-09-26T06:32:35.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随心笔记">
+<meta name="twitter:title" content="oracle-bfilename">
+<meta name="twitter:description" content="bfilenamebfilename主要用来读写文件，语法格式为bfilename(&amp;#39;directory&amp;#39;, &amp;#39;filename&amp;#39;) 1、将文件写入数据库首先在数据库服务器中新建文件夹C:\oracle_file，然后在文件夹中新建文件test.txt。">
+<meta name="twitter:image" content="http://yoursite.com/images/oracle-bfilename/bfilename01.png">
   
     <link rel="alternative" href="/atom.xml" title="随心笔记" type="application/atom+xml">
   
@@ -148,36 +158,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-oracle-bfilename" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      oracle-bfilename
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/26/oracle-bfilename/" class="archive-article-date">
+
+        
+        <a href="/2019/09/26/oracle-bfilename/" class="archive-article-date">
   	<time datetime="2019-09-26T05:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/26/oracle-bfilename/">oracle-bfilename</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="bfilename"><a href="#bfilename" class="headerlink" title="bfilename"></a>bfilename</h1><p>bfilename主要用来读写文件，语法格式为<code>bfilename(&#39;directory&#39;, &#39;filename&#39;)</code></p>
+<h2 id="1、将文件写入数据库"><a href="#1、将文件写入数据库" class="headerlink" title="1、将文件写入数据库"></a>1、将文件写入数据库</h2><p>首先在数据库服务器中新建文件夹C:\oracle_file，然后在文件夹中新建文件test.txt。</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<p><img src="/images/oracle-bfilename/bfilename01.png" alt="bfilename01"></p>
+<p>进入sys用户下创建文件夹对象exp_dir2并授予读写权限至hr用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建文件夹</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">directory</span> exp_dir2 <span class="keyword">as</span> <span class="string">'C:\oracle_file'</span>;</span><br><span class="line"><span class="comment">--授权</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">read</span>, write <span class="keyword">on</span> <span class="keyword">directory</span> exp_dir2 <span class="keyword">to</span> hr;</span><br></pre></td></tr></table></figure>
+
+<p>切换至hr用户建表测试</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--在hr用户下新建表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_media_20190926(media_name <span class="keyword">BFILE</span>);</span><br><span class="line"><span class="comment">--插入数据</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_media_20190926(media_name)</span><br><span class="line"><span class="keyword">values</span> (bfilename(<span class="string">'EXP_DIR2'</span>, <span class="string">'test.txt'</span>));</span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"><span class="comment">--查看数据</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_media_20190926;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/oracle-bfilename/bfilename02.png" alt="bfilename02"></p>
+<p><img src="/images/oracle-bfilename/bfilename03.png" alt="bfilename03"></p>
+<h2 id="2、写入数据"><a href="#2、写入数据" class="headerlink" title="2、写入数据"></a>2、写入数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--执行后原有数据会被覆盖</span></span><br><span class="line"><span class="keyword">declare</span> </span><br><span class="line">   fhandle utl_file.file_type; </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">  fhandle := utl_file.fopen(<span class="string">'EXP_DIR2'</span>, <span class="string">'test.txt'</span>, <span class="string">'w'</span>);</span><br><span class="line">  utl_file.put_line(fhandle , 'abcd');</span><br><span class="line">  utl_file.put_line(fhandle , 'efg');</span><br><span class="line">  utl_file.fclose(fhandle);</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、读取数据"><a href="#3、读取数据" class="headerlink" title="3、读取数据"></a>3、读取数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> </span><br><span class="line">   fhandle utl_file.file_type;</span><br><span class="line">   fp_buffer varchar2(4000);  </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">  fhandle := utl_file.fopen(<span class="string">'EXP_DIR2'</span>, <span class="string">'test.txt'</span>, <span class="string">'R'</span>);</span><br><span class="line">  </span><br><span class="line">  utl_file.get_line(fhandle, fp_buffer);</span><br><span class="line">  dbms_output.put_line(fp_buffer);</span><br><span class="line">  </span><br><span class="line">  utl_file.get_line(fhandle, fp_buffer);</span><br><span class="line">  dbms_output.put_line(fp_buffer);</span><br><span class="line">  </span><br><span class="line">  utl_file.fclose(fhandle);</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/oracle-bfilename/bfilename04.png" alt="bfilename04"></p>
+<p>[^只需要了解下就可以了，现在开发都是将附件直接保存到服务器目录下，很少会保存至数据库]: </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wxlq.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,171 +242,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/26/oracle-bfilename/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/25/oracle-avg/" class="archive-article-date">
-  	<time datetime="2019-09-25T14:53:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/25/oracle-avg/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">oracle-avg</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/25/oracle-avg/">oracle-avg</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/25/oracle-with-as/" class="archive-article-date">
-  	<time datetime="2019-09-25T02:13:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/25/oracle-with-as/">oracle-with as</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/22/oracle-connect/" class="archive-article-date">
-  	<time datetime="2019-09-22T12:39:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/22/oracle-connect/">oracle-connect</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/22/oracle-translate/" class="archive-article-date">
-  	<time datetime="2019-09-22T07:34:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/22/oracle-translate/">oracle translate</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -376,9 +364,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
